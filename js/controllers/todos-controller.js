@@ -13,6 +13,11 @@ Todos.TodosController = Ember.ArrayController.extend({
   
       todo.save(); 
     },
+    clearCompleted: function(){
+      const completed = this.filterBy('isCompleted', true);
+      completed.invoke('deleteRecord');
+      completed.invoke('save');
+    },
   }, 
 
   remaining: function(){
@@ -21,6 +26,10 @@ Todos.TodosController = Ember.ArrayController.extend({
 
   inflection: function(){ 
     return this.get('remaining') === 1 ? 'item' : 'items'
-  }.property('remaining')
+  }.property('remaining'),
+
+  totalCompletes: function(){
+    return this.filterBy('isCompleted',true).get('length')
+  }.property('@each.isCompleted'),
 
 })
