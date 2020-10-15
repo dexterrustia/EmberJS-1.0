@@ -1,0 +1,83 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ember.js • TodoMVC</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <script type="text/x-handlebars" data-template-name="todos">
+    <section id="todoapp">
+      <header id="header">
+        <h1>todos</h1>
+        {{input type="text" id="new-todo" class="form-control form-control-lg" placeholder="What needs to be done?" value=newTitle action="createTodo"}}
+      </header>
+
+      <section id="main">
+        <ul id="todo-list">
+          {{#each todo in model}}
+            <li>
+              <input type="checkbox" class="toggle">
+              <label {{bind-attr class="todo.isCompleted:completed"}}>{{todo.title}}</label> <button class="destroy btn btn-danger">x</button> 
+            </li>
+          {{/each}}
+        </ul>
+
+        <input type="checkbox" id="toggle-all">
+      </section>
+
+      <footer id="footer">
+        <span id="todo-count">
+          <strong>{{model.length}}</strong> todos left
+        </span>
+        <ul id="filters">
+          <li>
+            <a href="all" class="selected">All</a>
+          </li>
+          <li>
+            <a href="active">Active</a>
+          </li>
+          <li>
+            <a href="completed">Completed</a>
+          </li>
+        </ul>
+
+        <button id="clear-completed">
+          Clear completed (1)
+        </button>
+      </footer>
+    </section>
+
+      <section id="todoapp">
+        {{! ... additional lines truncated for brevity ... }} 
+      </section>
+  
+      <footer id="info">
+        <p>Double-click to edit a todo</p> 
+      </footer>
+  
+    </script>
+
+    <!-- ... additional lines truncated for brevity ... -->
+  <script src="js/libs/jquery-1.11.2.min.js"></script>
+  <script src="js/libs/handlebars-v1.3.0.js"></script>
+  <script src="js/libs/ember.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+  
+
+  <!-- ... Ember.js and other JavaScript dependencies ... -->
+  <script src="js/application.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/models/todo.js"></script>
+  </body>
+  <!-- ... additional lines truncated for brevity ... -->
+</html>
